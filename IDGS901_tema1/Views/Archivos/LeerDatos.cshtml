@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "LeerDatos";
+    int cont = 0;
+}
+
+<h2>LeerDatos</h2>
+
+@foreach(string item in ViewBag.Archivos)
+{
+    <li>
+        <h3> Usuario : @(cont=cont+1) </h3>
+        <ul>
+            @foreach(string maestro in item.Split(','))
+                {
+                    <li>@maestro</li>
+                }
+        </ul>
+    </li>
+}

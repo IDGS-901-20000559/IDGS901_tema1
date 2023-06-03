@@ -1,0 +1,74 @@
+﻿@model IDGS901_tema1.Models.Traduccion
+
+@{
+    ViewBag.Title = "Traduccion";
+    var tabla = ViewBag.Archivos;
+}
+
+<div class="row">
+    <div class="col-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Traduccion</h4>
+            <a class="btn btn-dark text-white" href="BuscarPalabra">Ir a busqueda</a>
+            <hr class="border-2 border-primary" />
+            <h4 class="text-uppercase">Agregar palabra</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label class="control-label col-md-12">Palabra en español</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PalabraEspaniol, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PalabraEspaniol, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12">Palabra en inglés</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PalabraIngles, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PalabraIngles, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Insertar" class="btn btn-success btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+        <br />
+        <form action="RegistrarPalabra" method="get">
+            <input type="text" value="show" name="tabla" id="tabla" disabled hidden />
+            <input type="submit" value="Ocultar Tabla" class="btn btn-primary btn-default" />
+        </form>
+    </div>
+    <div class="col-6">
+        <table class="table">
+            <tr>
+                <th>
+                    Palabra en español
+                </th>
+                <th>
+                    Palabra en inglés
+                </th>
+            </tr>
+
+            @foreach (var item in tabla)
+            {
+                <tr>
+                    @foreach (string word in item.Split('-'))
+                    {
+
+                        <td>@word.ToUpper()</td>
+
+                    }
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

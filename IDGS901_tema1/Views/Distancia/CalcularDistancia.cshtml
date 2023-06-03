@@ -1,0 +1,33 @@
+﻿@model IDGS901_tema1.Models.Distancia
+
+@{
+    ViewBag.Title = "CalcularDistancia";
+}
+
+<h2>CalcularDistancia</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="/Distancia/MostrarResultado">
+                <label>x1</label>
+                <input type="number" name="x1" value="" />
+                <br />
+                <label>x2</label>
+                <input type="number" name="x2" value="" />
+                <br />
+                <label>y1</label>
+                <input type="number" name="y1" value="" />
+                <br />
+                <label>y2</label>
+                <input type="number" name="y2" value="" />
+                <br />
+                <input type="submit" class="btn btn-primary" value="Calcular" />
+                <!--
+                    @Html.ActionLink("Calcular distancia", "MostrarResultado",
+                    null, null, new { dato = "valor", @class = "btn btn-primary" })
+                -->
+            </form>
+        </div>
+    </div>
+</div>

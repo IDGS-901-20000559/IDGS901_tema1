@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!--Uso de HTML genders-->
+<p>@Html.Display("Persona")</p>
+
+<!-- Para darle formato a los campos -->
+<!-- Se agrega una carpeta nueva en la carpeta de vistas (Views) llamada "DisplayTemplates" -->
+
+<!--Para agregar un formulario en base a una case de modelo-->
+@Html.Editor("Persona")

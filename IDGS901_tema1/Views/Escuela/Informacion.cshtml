@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Informacion";
+}
+
+<h2>Informacion</h2>
+
+<h2>@ViewBag.Grupo</h2>
+<h1>@ViewData["Materia"]</h1>
+<br />
+<hr class="border-primary border border-2" />
+<center><h1>@ViewBag.Nombre</h1></center>
+<hr class="border-primary border border-2" />
+
+@Html.ActionLink("Mi ruta", "About2", null, null, new { dato = "valor", @class = "btn btn-primary" })
+
+@{Html.RenderAction("About", "Home");
+}

@@ -1,0 +1,43 @@
+﻿@model IDGS901_tema1.Models.Traduccion
+
+@{
+    ViewBag.Title = "Traduccion";
+}
+<div class="row">
+    <div class="col-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Traduccion</h4>
+            <a class="btn btn-dark text-white" href="RegistrarPalabra">Ir a agregar</a>
+            <hr class="border-2 border-primary" />
+            <h4 class="text-uppercase">Buscar palabra</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Busqueda, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Busqueda, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Escoge el idioma en el que quieres buscar</label>
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.RadioButtonFor(model => model.Activo, "esp")@Html.Label("Español")
+                    @Html.RadioButtonFor(model => model.Activo, "ing")@Html.Label("Inglés")
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Buscar" class="btn btn-success btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="col-6">
+        <h1 class="text-@ViewBag.text">@ViewBag.resultado</h1>
+    </div>
+</div>

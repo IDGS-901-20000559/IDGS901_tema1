@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<hr class="border border-2" />
+<hr class="border border-2" />
+<div class="row">
+    <div class="col-lg-6">
+        <form action="/cajasDinamicas/Index">
+            <div class="row control-group">
+                <div class="form-group">
+                    <input type="number" class="form-control" name="numero" id="numero">
+                </div>
+                <input type="submit" class="col-6 btn btn-outline-primary" value="Cargar Campos">
+            </div>
+        </form>
+    </div>
+    <br />
+    <div class="col-lg-6">
+        <form action="/cajasDinamicas/calculos">
+            <div class="row control-group">
+                @for (int i = 0; i < @ViewBag.Num; i++)
+                {
+                    <input type="number" name="campo" id="campo" class="form-control">
+                }
+            </div>
+            <input type="submit" class="col-6 btn btn-outline-primary" value="Calcular">
+        </form>
+    </div>
+</div>
+<hr class="border border-2" />
+<hr class="border border-2" />
+
+
+
+
